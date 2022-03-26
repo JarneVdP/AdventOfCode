@@ -1,11 +1,5 @@
-#=
-function position(input)
-    return input[1] + input[2]
-end
-=#
-
-
-input = readlines("test.txt")
-print(input)
-#inputdirection, inputdistance = input.split(" ")
-#print(inputdirection)
+f = open("test.txt")
+input = readlines(f)
+show(input)
+inputdirection, inputdistance = input.split(" ")
+print(inputdirection, inputdistance)
