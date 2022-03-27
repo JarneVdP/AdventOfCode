@@ -18,6 +18,22 @@ end
 
 function PartTwo(input)
     aim = 0
+    horizontal  = 0
+    depth = 0
+    for line in input
+        inputdirection, inputdistance = split(line, " ")
+        inputdistance = parse(Int64, inputdistance)
+        if inputdirection == "forward"
+            horizontal += inputdistance
+            depth += aim * inputdistance
+        elseif inputdirection == "down"
+            aim += inputdistance
+        elseif inputdirection == "up"
+            aim -= inputdistance
+        end
+    end
+    result = horizontal * depth
+    return result
 end
 
 
