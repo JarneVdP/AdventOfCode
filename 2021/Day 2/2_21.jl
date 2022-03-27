@@ -1,5 +1,4 @@
-f = open("test.txt")
-input = readlines(f)
+input = readlines("test.txt")
 show(input)
 #inputdirection, inputdistance = input.split(" ")
 #print(inputdirection, inputdistance)
