@@ -18,7 +18,7 @@ function ThreeMeasurementSlidingWindow(lines)
     return counter
 end
 
-lines = readlines("1_21.txt")
+lines = readlines("2021/Day 1/1_21.txt")
 lines = [parse(Int16, line) for line in lines]  
 println("Solution part 1: ", countIncrement(lines))     #correct answer
 println("Solution part 2: ", ThreeMeasurementSlidingWindow(lines))     #correct answer

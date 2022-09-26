@@ -16,6 +16,7 @@ function PartOne(input)
     return result
 end
 
+
 function PartTwo(input)
     aim = 0
     horizontal  = 0
@@ -37,6 +38,6 @@ function PartTwo(input)
 end
 
 
-input = readlines("2_21.txt")
+input = readlines("2021/Day 2/2_21.txt")
 println("Solution part 1: ", PartOne(input))     #correct answer
 println("Solution part 2: ", PartTwo(input))     #correct answer
