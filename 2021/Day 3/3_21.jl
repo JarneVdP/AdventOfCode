@@ -51,23 +51,23 @@ function binToDec(bin)
 end
 
 
+
 # Part 2
 function PartTwo(lines)
     Oxygen, CO2 = copy(lines), copy(lines)
     i = 0
     for i in 1:12     #length(digits(mostCommon))
-        #println("length: ", 12-i)
         Oxygen = dropArray(Oxygen,true, i)
-        #println("Oxygen: ", Oxygen)
+        println("Oxygen: ", Oxygen)
         if length(Oxygen) == 1
             break
         end
     end
+    println("############################################# \n ############################################# \n")
     for i in 1:12     #length(digits(leastCommon)) but changed it at the markers because i didnt want to chanmge the dropArray function which gave me errors. :)
         #print("length: ", 12-i)
         CO2 = dropArray(CO2,false, i)
         println("CO2: ", CO2)
-        #println("CO2: ", CO2) #Vector{String}
         if length(CO2) == 1
             break
         end
@@ -115,7 +115,7 @@ end
 
 lines = readlines("2021/Day 3/3_21.txt")
 answer,mostCommon, leastCommon = PartOne(lines, true)
-#println("Solution part 1: ", answer, " ", leastCommon)  #775304
+println("Solution part 1: ", answer, " ", leastCommon)  #775304
 println("Solution part 2: ", PartTwo(lines))    #1370737, oxygen: 000111111101 - check, CO2: 101010000101
                                                 #1362930
 
