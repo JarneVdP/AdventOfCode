@@ -1,5 +1,4 @@
 *.json
-tmp.jl
 .idea
 .fleet
 .vscode
