@@ -7,6 +7,8 @@ function cleanup(lines)
     for line in lines
         push!(lines2, split(line, ['-',',']))
     end
+    #lines2 = split.(split(line, ','), '-') and working with lines[i, j] instead of lines[i][j]
+
     for line in lines2
         push!(lines3, [parse(Int, line[1]), parse(Int, line[2]), parse(Int, line[3]), parse(Int, line[4])])
     end
@@ -38,6 +40,6 @@ function cleanup2(lines)
 end
 
 
-lines = readlines("2022/Day 4/test.txt")
+lines = readlines("2022/Day 4/4_22.txt")
 println("Solution part 1: ", cleanup(lines))     #correct answer, 569
-println("Solution part 2: ", cleanup2(lines))    #correct answer, 2510
+println("Solution part 2: ", cleanup2(lines))    #correct answer, 936
