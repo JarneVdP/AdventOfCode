@@ -11,12 +11,11 @@ function packet(file, second::Bool)
         end
     else
         for i in 1:length(charArray)
-            println(charArray[i:i+13])
             allunique(charArray[i:i+13]) ? [return i+13] : nothing
         end
     end
 end
 
 
-@show packet("2022/Day 6/6_22.txt", false)  #WSFTMRHPP
-@show packet("2022/Day 6/6_22.txt", true)  #WSFTMRHPP
+@show packet("2022/Day 6/6_22.txt", false)  #1198
+@show packet("2022/Day 6/6_22.txt", true)  #3120
