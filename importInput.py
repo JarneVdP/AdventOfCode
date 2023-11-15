@@ -21,6 +21,13 @@ inputurl = f"{url}/input"
 response = requests.get(inputurl, headers={"User-Agent": "https://github.com/JarneVdP/AdventOfCode by Jarne"}, cookies={"session": session_id})
 input_data = response.text
 
-# Write the input data to a file named data.txt in the created folder
-with open(os.path.join(folder_name, "data.txt"), "w") as f:
+# Write the input data to a file named day_year.txt in the created folder
+# eg 2022/day/8.txt -> 8_22.txt
+filename = f"{day}_{year[2:]}.txt"
+Julia_filename = f"{day}_{year[2:]}.jl"
+with open(os.path.join(folder_name, filename), "w") as f:
     f.write(input_data)
+with open(os.path.join(folder_name, Julia_filename), "w") as f:
+    f.write("")
+with open(os.path.join(folder_name, "test.txt"), "w") as f:
+    f.write("")
