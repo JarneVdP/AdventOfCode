@@ -1,6 +1,3 @@
-using Base.Threads
-using Plots
-
 function Beacon(file::String, second::Bool)
     input = readlines(file)
     regex = r"-?\d+"
