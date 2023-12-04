@@ -25,9 +25,25 @@ input_data = response.text
 # eg 2022/day/8.txt -> 8_22.txt
 filename = f"{day}_{year[2:]}.txt"
 Julia_filename = f"{day}_{year[2:]}.jl"
+
+julia_template = """function p1_2(file::String, second::Bool=false)
+    input = readlines(file)
+    r1 = r2 = 0
+
+    return second ? r2 : r1
+end
+
+t = [0,1]
+for (i, second) in enumerate([false, true])
+    if p1_2("{Year}/Day {day}/test.txt", second) == t[i]
+        p1_2("{Year}/Day {day}/{day}_{year}.txt", second)
+    end
+end""".format(Year=year, day=day, year=year[2:])
+
+
 with open(os.path.join(folder_name, filename), "w") as f:
     f.write(input_data)
 with open(os.path.join(folder_name, Julia_filename), "w") as f:
-    f.write("")
+    f.write(julia_template)
 with open(os.path.join(folder_name, "test.txt"), "w") as f:
     f.write("")
