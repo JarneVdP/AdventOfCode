@@ -76,4 +76,4 @@ function get_number(input, start)
 end
 
 @show engine("2023/Day 3/3_23.txt")         #498559
-@show engine("2023/Day 3/3_23.txt", true)   #
+@show engine("2023/Day 3/3_23.txt", true)   #72246648
