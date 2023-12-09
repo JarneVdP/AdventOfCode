@@ -33,11 +33,12 @@ julia_template = """function p1_2(file::String, second::Bool=false)
     return second ? r2 : r1
 end
 
-t = [0,1]
-for (i, second) in enumerate([false, true])
-    if p1_2("{Year}/Day {day}/test.txt", second) == t[i]
-        p1_2("{Year}/Day {day}/{day}_{year}.txt", second)
-    end
+t = [-1,-1]
+if @show p1_2("{Year}/Day {day}/test.txt") == t[1]
+    p1_2("{Year}/Day {day}/{day}_{year}.txt")      
+end
+if @show p1_2("{Year}/Day {day}/test.txt", true) == t[2]
+    p1_2("{Year}/Day {day}/{day}_{year}.txt", true)
 end""".format(Year=year, day=day, year=year[2:])
 
 
