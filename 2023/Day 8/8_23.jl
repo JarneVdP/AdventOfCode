@@ -69,7 +69,6 @@ t = [2, 6]
 if @show p1_2("2023/Day 8/test.txt") == t[1]
     @show p1_2("2023/Day 8/8_23.txt")      #16897
 end
-#part 2 takes a loooong time
 if @show p1_2("2023/Day 8/test2.txt", true) == t[2]
     @show p1_2("2023/Day 8/8_23.txt", true)     #16563603485021
 end
