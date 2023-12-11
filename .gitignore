@@ -2,7 +2,7 @@
 .idea
 .fleet
 .vscode
-test.txt
+test*.txt
 tmp.jl
 session.txt
 JuliaClasses
