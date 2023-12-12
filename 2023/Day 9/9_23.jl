@@ -9,9 +9,7 @@ function p1_2(file::String, second::Bool=false)
             reverse!(current_values)
         end
         while !last_line_zeros
-            for i in firstindex(current_values):lastindex(current_values)-1
-                current_values[i] = current_values[i+1] - current_values[i]
-            end
+            current_values[1:end-1] = current_values[2:end] .- current_values[1:end-1]
             r1 += current_values[end]
             pop!(current_values)
             last_line_zeros = all(x -> x == 0, current_values)
