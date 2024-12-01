@@ -1,23 +1,18 @@
 function p1_2(file::String, second::Bool=false)
     input = readlines(file)
     r1 = r2 = 0
-    left = Int[]
-    right = Int[]
+    
+    left, right = Int[], Int[]
     for s in input
-        parts = split(s)
-        push!(left, parse(Int, parts[1]))
-        push!(right, parse(Int, parts[2]))
+        l, r = parse.(Int, split(s))
+        push!(left, l)
+        push!(right, r)
     end
-    left2 = copy(left)
-    right2 = copy(right)
-    left = sort!(left)
-    right = sort!(right)
+    
+    r1 = sum(abs.(sort(left) .- sort(right)))
  
-    for (l,r) in zip(left, right)
-        r1 += abs(l-r)
-    end
-    for l in left2
-        rc = count(x -> x == l, right2)
+    for l in left
+        rc = count(x -> x == l, right)
         r2 += l * rc
     end
 
