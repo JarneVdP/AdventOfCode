@@ -2,7 +2,7 @@ import os
 import requests
 
 # Get the URL for the input data from the user
-url = input("Enter the URL for the input data: ")
+url = input("Enter the URL for the day without '/input': ")
 
 # Extract the year and day from the URL eg https://adventofcode.com/2022/day/8 -> 2022, 8
 year = url.split("/")[3]
