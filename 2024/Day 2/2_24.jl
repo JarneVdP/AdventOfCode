@@ -1,49 +1,44 @@
-function p1_2(file::String, second::Bool=false)
+function p1_2(file::String, second::Bool = false)
     input = readlines(file)
-    r1 = r2 = 0
     data = [parse.(Int, split(line)) for line in input]
     p2 = []
-    for d in data
-        if !(sort(d) == d || sort(d, rev=true) == d)
-            push!(p2, d)
-            continue
-        end
-        d2 = sort(d)
-        if !all(diff(d2) .<= 3 .&& diff(d2) .>= 1)
-            push!(p2, d)
-            continue
-        end
-        r1 +=1
+
+    function is_valid_sequence(d::Vector{Int})
+        sorted_d = sort(d)
+        return (d == sorted_d || d == reverse(sorted_d)) && all(1 .<= diff(sorted_d) .<= 3)
     end
+
+    r1 = 0
+    for d in data
+        if is_valid_sequence(d)
+            r1 += 1
+        else
+            push!(p2, d)
+        end
+    end
+
     if !second
         return r1
     end
 
     r2 = r1
     for p in p2
-        correct = 0
-        for i in 1:length(p)
+        for i in eachindex(p)
             temp = copy(p)
-            popat!(temp, i)
-            if !(sort(temp) == temp || sort(temp, rev=true) == temp)
-                continue
+            deleteat!(temp, i)
+            if is_valid_sequence(temp)
+                r2 += 1
+                break
             end
-            sort!(temp)
-            if !all(diff(temp) .<= 3 .&& diff(temp) .>= 1)
-                continue
-            end
-            correct += 1
-        end
-        if correct > 0
-            r2 += 1
         end
     end
+
     return r2
 end
 
-t = [2,4]
+t = [2, 4]
 if @show p1_2("2024/Day 2/test.txt") == t[1]
-    @show p1_2("2024/Day 2/2_24.txt")      
+    @show p1_2("2024/Day 2/2_24.txt")
 end
 if @show p1_2("2024/Day 2/test.txt", true) == t[2]
     @show p1_2("2024/Day 2/2_24.txt", true)
